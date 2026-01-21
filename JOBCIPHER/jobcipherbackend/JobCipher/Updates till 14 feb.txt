@@ -1,0 +1,4 @@
+LinkedIn, AmbitionBox, Indeed, Naukri web scraping done along with ambitionbox and glassdoor reviews.
+Node.js server launched with google sign-in
+
+GitHub link: https://github.com/Siddhant4742/JobCipher

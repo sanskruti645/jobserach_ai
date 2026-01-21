@@ -1,0 +1,19 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/api/job-search",
+      "destination": "http://13.203.209.210:5000/job-search"
+    },
+    {
+      "source": "/api/extract",
+      "destination": "http://13.203.209.210:5001/extract"
+    },
+    {
+      "source": "/api/get_reviews",
+      "destination": "http://13.203.209.210:5002/get_reviews"
+    }
+  ]
+}

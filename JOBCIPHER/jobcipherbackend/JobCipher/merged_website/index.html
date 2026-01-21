@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Upload and Job Search</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Resume Upload and Job Search</h1>
+  
+  <div class="main-container">
+    <!-- Left Column: Company Reviews on Top, Filters Below -->
+    <div class="left-column">
+      <!-- Company Reviews Section -->
+      <div class="company-review-section">
+        <h2>Company Reviews</h2>
+        <label for="companyReviewInput">Enter Company Name:</label>
+        <input type="text" id="companyReviewInput" placeholder="e.g., Amazon">
+        <button type="button" id="getReviewsButton">Get Company Reviews</button>
+      </div>
+       <!-- Job Alert Section -->
+       <div class="job-alert-section">
+        <h2>Create Job Alert</h2>
+        <form id="jobAlertForm">
+          <label for="alertKeyword">Job Keyword:</label>
+          <input type="text" id="alertKeyword" placeholder="e.g., Software Engineer" required>
+          
+          <label for="alertLocation">Location:</label>
+          <input type="text" id="alertLocation" placeholder="e.g., Bangalore" required>
+          
+          <label for="alertEmail">Your Email:</label>
+          <input type="email" id="alertEmail" placeholder="your@example.com" required>
+          
+          <button type="submit" id="createAlertButton">Create Alert</button>
+        </form>
+        <div id="alertStatus"></div>
+      </div>
+      <!-- Filters Section -->
+      <div class="filters-section">
+        <h3>Filters</h3>
+        <form id="filterForm">
+          <label for="experience">Experience (years):</label>
+          <input type="number" id="experience" name="experience" min="0" value="0" />
+
+          <label for="job_type">Job Type:</label>
+          <select id="job_type" name="job_type">
+            <option value="Full-time" selected>Full Time</option>
+            <option value="Part-time">Part Time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+          </select>
+
+          <label for="remote">Work Mode:</label>
+          <select id="remote" name="remote">
+            <option value="on-site" selected>On-Site</option>
+            <option value="remote">Remote</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+
+          <label for="date_posted">Date Posted:</label>
+          <select id="date_posted" name="date_posted">
+            <option value="hours">Last 24 Hours</option>
+            <option value="week" selected>Last Week</option>
+            <option value="month">Last Month</option>
+          </select>
+
+          <label for="company">Company Name:</label>
+          <input type="text" id="company" name="company" placeholder="e.g., Google" />
+
+          <label for="industry">Industry:</label>
+          <input type="text" id="industry" name="industry" placeholder="e.g., IT" />
+
+          <label for="ctc_filters">CTC Filter (in LPA):</label>
+          <input type="number" id="ctc_filters" name="ctc_filters" min="0" step="0.1" placeholder="e.g., 6" />
+
+          <label for="radius">Radius (km):</label>
+          <input type="number" id="radius" name="radius" min="0" value="10" />
+          
+          <label for="keyword">Keyword:</label>
+          <input type="text" id="keyword" name="keyword" list="keywordList" placeholder="e.g., PySpark" />
+          <datalist id="keywordList">
+            <option value="Software Engineer">
+            <option value="Network Administrator">
+            <option value="Web Developer">
+            <!-- Other keywords from original code -->
+          </datalist>
+          
+          <label for="filterLocation">Location:</label>
+          <input type="text" id="filterLocation" name="filterLocation" list="locationList" placeholder="e.g., Pune" />
+          <datalist id="locationList">
+            <option value="Mumbai">
+            <option value="Delhi">
+            <option value="Bengaluru">
+            <!-- Other locations from original code -->
+          </datalist>
+
+          <!-- CareerJet CORS Proxy selector -->
+          <label for="proxy-selector">CORS Proxy for CareerJet:</label>
+          <select id="proxy-selector">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+
+          <div class="filter-buttons">
+            <button type="button" id="applyFilters">Apply Filters</button>
+            <button type="button" id="clearFilters">Clear Filters</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- CareerJet Info Section -->
+      <div class="info-section">
+        <div class="info-box">
+          <h3>CareerJet Note</h3>
+          <p>CareerJet data is fetched using a CORS proxy. You may need to try different proxies if you encounter issues.</p>
+          <p id="current-proxy"></p>
+          <button id="toggle-debug" class="btn-text">Toggle Debug Panel</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Column: Resume Upload & Job Results -->
+    <div class="right-column">
+      <div class="container">
+        <h3>Resume Upload</h3>
+        <input type="file" id="fileInput" accept="application/pdf" />
+        <button id="uploadButton">Upload Resume & Search Jobs</button>
+        <div id="status"></div>
+      </div>
+
+      
+      
+      
+      
+      <!-- New CareerJet Results Container -->
+      <div class="container">
+        <h3>CareerJet Jobs:</h3>
+        <div class="loader" id="loader"></div>
+        <div id="careerjet-count"></div>
+        <div id="careerjet-listings"></div>
+        <button type="button" class="btn-secondary" id="download-btn" disabled>Download CareerJet Results (CSV)</button>
+      </div>
+      <div class="container">
+        <h3>Naukri Jobs:</h3>
+        <table id="naukriTable"></table>
+      </div>
+      <div class="container">
+        <h3>LinkedIn Jobs:</h3>
+        <table id="linkedinTable"></table>
+      </div>
+
+      <!-- Debug Panel -->
+      <section id="debug-panel" style="display: none;">
+        <h3>Debug Log</h3>
+        <div id="debug-log" class="debug-log"></div>
+      </section>
+    </div>
+  </div>
+  
+ 
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Upload and Job Search</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Resume Upload and Job Search</h1>
+  <!-- Main container with sidebar and content area -->
+  <div class="main-container">
+    <!-- Sidebar for Filters -->
+    <div class="sidebar">
+      <h3>Filters</h3>
+      <form id="filterForm">
+        <label for="experience">Experience (years):</label>
+        <input type="number" id="experience" name="experience" min="0" value="0" />
+
+        <label for="job_type">Job Type:</label>
+        <select id="job_type" name="job_type">
+          <option value="Full-time" selected>Full Time</option>
+          <option value="Part-time">Part Time</option>
+          <option value="Contract">Contract</option>
+          <option value="Internship">Internship</option>
+        </select>
+
+        <label for="remote">Work Mode:</label>
+        <select id="remote" name="remote">
+          <option value="on-site" selected>On-Site</option>
+          <option value="remote">Remote</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+
+        <label for="date_posted">Date Posted:</label>
+        <select id="date_posted" name="date_posted">
+          <option value="hours">Last 24 Hours</option>
+          <!-- <option value="3 days">Last 3 Days</option> -->
+          <option value="week" selected>Last Week</option>
+          <option value="month">Last Month</option>
+        </select>
+
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company" placeholder="e.g., Google" />
+
+        <label for="industry">Industry:</label>
+        <input type="text" id="industry" name="industry" placeholder="e.g., IT" />
+
+        <label for="ctc_filters">CTC Filter (in LPA):</label>
+        <input type="number" id="ctc_filters" name="ctc_filters" min="0" step="0.1" placeholder="e.g., 6" />
+
+        <label for="radius">Radius (km):</label>
+        <input type="number" id="radius" name="radius" min="0" value="10" />
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword" list="keywordList" placeholder="e.g., PySpark" />
+<datalist id="keywordList">
+    <option value="Software Engineer">
+        <option value="Network Administrator">
+        <option value="Web Developer">
+        <option value="Computer Programmer">
+        <option value="Information Security Analyst">
+        <option value="Data Architect">
+        <option value="Business Systems Analyst">
+        <option value="UX Designer">
+        <option value="UI Designer">
+        <option value="Computer Scientist">
+        <option value="Chief Information Officer (CIO)">
+        <option value="AI Engineer">
+        <option value="Machine Learning Specialist">
+        <option value="Data Scientist">
+        <option value="Cloud Solutions Architect">
+        <option value="DevOps Engineer">
+        <option value="Full Stack Developer">
+        <option value="Systems Analyst">
+        <option value="Database Administrator">
+        <option value="IT Support Specialist">
+        <option value="Cybersecurity Analyst">
+        <option value="Mobile Application Developer">
+        <option value="IT Project Manager">
+        <option value="Blockchain Developer">
+        <option value="Network Engineer">
+        <option value="QA Engineer">
+        <option value="Technical Support Engineer">
+        <option value="IT Consultant">
+        <option value="Front-End Developer">
+        <option value="Back-End Developer">
+        <option value="Embedded Systems Engineer">
+        <option value="Systems Administrator">
+        <option value="IT Infrastructure Manager">
+        <option value="Enterprise Architect">
+        <option value="Big Data Engineer">
+        <option value="Program Manager">
+        <option value="Cloud Architect">
+        <option value="Engineering Manager">
+        <option value="Security Operations Center (SOC) Manager">
+        <option value="Cybersecurity Manager">
+        <option value="AI Specialist">
+        <option value="Machine Learning Engineer">
+        <option value="Data Analyst">
+        <option value="Software Developer">
+        <option value="IT Manager">
+        <option value="Technical Lead">
+        <option value="Product Manager">
+        <option value="Scrum Master">
+        <option value="Agile Coach">
+        <option value="IT Director">    
+  <!-- Add more keyword suggestions as needed -->
+</datalist>
+<label for="filterLocation">Location:</label>
+<input type="text" id="filterLocation" name="filterLocation" list="locationList" placeholder="e.g., Pune" />
+<datalist id="locationList">
+    <option value="Mumbai">
+        <option value="Delhi">
+        <option value="Bengaluru">
+        <option value="Kolkata">
+        <option value="Chennai">
+        <option value="Hyderabad">
+        <option value="Pune">
+        <option value="Ahmedabad">
+        <option value="Surat">
+        <option value="Jaipur">
+        <option value="Lucknow">
+        <option value="Kanpur">
+        <option value="Nagpur">
+        <option value="Visakhapatnam">
+        <option value="Bhopal">
+        <option value="Patna">
+        <option value="Ludhiana">
+        <option value="Agra">
+        <option value="Nashik">
+        <option value="Vadodara">
+        <option value="Indore">
+        <option value="Coimbatore">
+        <option value="Kochi">
+        <option value="Mysore">
+        <option value="Thiruvananthapuram">
+        <option value="Guwahati">
+        <option value="Chandigarh">
+        <option value="Amritsar">
+        <option value="Ranchi">
+        <option value="Raipur">
+        <option value="Bhubaneswar">
+        <option value="Dehradun">
+        <option value="Jodhpur">
+        <option value="Madurai">
+        <option value="Varanasi">
+        <option value="Aurangabad">
+        <option value="Gwalior">
+        <option value="Vijayawada">
+        <option value="Jabalpur">
+        <option value="Rajkot">
+        <option value="Meerut">
+        <option value="Dhanbad">
+        <option value="Allahabad">
+        <option value="Faridabad">
+        <option value="Ghaziabad">
+        <option value="Noida">
+        <option value="Gurgaon">
+        <option value="Shimla">
+        <option value="Srinagar">
+        <option value="Puducherry">
+  <!-- Add more location suggestions as needed -->
+</datalist>
+
+        <div class="filter-buttons">
+          <button type="button" id="applyFilters">Apply Filters</button>
+          <button type="button" id="clearFilters">Clear Filters</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Content Area: Resume Upload & Job Results -->
+    <div class="content">
+      <div class="container">
+        <input type="file" id="fileInput" accept="application/pdf" />
+        <button id="uploadButton">Upload and Search Jobs</button>
+        <div id="status"></div>
+      </div>
+
+      <div class="container">
+        <h3>LinkedIn Jobs:</h3>
+        <table id="linkedinTable"></table>
+      </div>
+      <div class="container">
+        <h3>Naukri Jobs:</h3>
+        <table id="naukriTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

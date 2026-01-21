@@ -1,0 +1,18 @@
+git init
+git add .
+git add remote origin repo name
+if origin exists git remote remove origin
+git commit -m comments
+git push -u origin branch-name
+
+git checkout -b my_branch_name
+now go to GitHub website 
+You should see a banner to compare and create a pull request.
+Select your new branch (e.g., my-new-branch) and choose the base branch (typically main).
+Add a title and description for your pull request and submit it.
+
+Review and Merge
+git branch -r to see remote branches
+git branch to  see local branches
+gi checkout main
+git branch -d branch_name to delete branches
