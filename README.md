@@ -82,6 +82,90 @@ AWS (DynamoDB + S3)
 
 ---
 
+## � Project Structure
+
+```
+jobsearch_ai/
+├── jobsearch/
+│   ├── jobcipherbackend/
+│   │   └── JobCipher/
+│   │       ├── aws_deplyable.py                 # AWS Lambda deployment
+│   │       ├── dynamo_db_store.py              # DynamoDB operations
+│   │       ├── fetch_from_aws.py               # Retrieve stored data
+│   │       ├── indeed.py                       # Indeed scraper
+│   │       ├── linkedin.py                     # LinkedIn scraper
+│   │       ├── naukri_selenium.py              # Naukri Selenium scraper
+│   │       ├── naukri.py                       # Naukri API scraper
+│   │       ├── test_resume_and_job_fetch_combine.py  # Integration tests
+│   │       │
+│   │       ├── careerjet/                      # Careerjet scraper module
+│   │       │   ├── main.py
+│   │       │   ├── real_time_main.py
+│   │       │   └── url_generator.py
+│   │       │
+│   │       ├── groq_extracter/                 # AI Resume Parser
+│   │       │   ├── skill_extracter.py          # Extract skills from resume
+│   │       │   ├── text_extraction.py          # PDF text extraction
+│   │       │   ├── aws_skill.py                # AWS integration
+│   │       │   └── fetch_skills_from_aws.py
+│   │       │
+│   │       ├── Indeed/                         # Indeed scraper components
+│   │       │   ├── Indeed_job_scraper.py
+│   │       │   ├── Indeed_url_generator.py
+│   │       │   ├── indeed.py
+│   │       │   └── Ineed_driver_setup.py
+│   │       │
+│   │       ├── Job_alert/                      # Email alerts system
+│   │       │   ├── job_alerts.py
+│   │       │   ├── sending_emails.py
+│   │       │   ├── dyanmodb_data_for_alerts.py
+│   │       │   └── aws_credentials.py
+│   │       │
+│   │       ├── Linkedin/                       # LinkedIn scraper components
+│   │       │   ├── linkedin_job_fetcher.py
+│   │       │   ├── linkedin_job_parser.py
+│   │       │   ├── linkedin_url_generator.py
+│   │       │   └── linkedin.py
+│   │       │
+│   │       ├── Naukri/                         # Naukri scraper components
+│   │       │   ├── Naukri_link_parser.py
+│   │       │   ├── Naukri_selenium_customiser.py
+│   │       │   └── naukri_selenium.py
+│   │       │
+│   │       ├── reviews_using_gemini/           # Company review analysis
+│   │       ├── merged_website/                 # Static website version
+│   │       └── Website_with_careerjet/         # Frontend prototype
+│   │
+│   └── jobsearchweb/                           # React Frontend
+│       ├── package.json                        # Dependencies
+│       ├── vite.config.ts                      # Vite configuration
+│       ├── tailwind.config.ts                  # Tailwind CSS config
+│       ├── next.config.js                      # Next.js config
+│       ├── vercel.json                         # Vercel deployment
+│       │
+│       ├── src/
+│       │   ├── App.tsx                         # Main app component
+│       │   ├── main.tsx                        # Entry point
+│       │   ├── config.ts                       # App configuration
+│       │   ├── pages/                          # Page components
+│       │   ├── components/                     # Reusable UI components
+│       │   ├── services/                       # API services
+│       │   ├── hooks/                          # React hooks
+│       │   ├── integrations/                   # Third-party integrations
+│       │   ├── lib/                            # Utility libraries
+│       │   ├── utils/                          # Helper functions
+│       │   └── themes/                         # UI themes
+│       │
+│       ├── supabase/                           # Supabase configuration
+│       │   └── config.toml
+│       │
+│       └── public/                             # Static assets
+│
+├── README.md                                   # Original documentation
+└── README_NEW.md                               # This file
+```
+
+
 ## 📊 Data Flow
 
 ```
