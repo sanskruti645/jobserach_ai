@@ -1,6 +1,3 @@
 {
-  "buildCommand": "cd jobsearch/jobsearchweb && npm install && npm run build",
-  "outputDirectory": "jobsearch/jobsearchweb/dist",
-  "installCommand": "cd jobsearch/jobsearchweb && npm install",
   "framework": "vite"
 }
